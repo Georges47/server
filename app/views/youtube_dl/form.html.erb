@@ -1,0 +1,62 @@
+<style>
+  .content {
+      display: flex;
+      justify-content: center;
+  }
+  .container {
+      background-color: #f4f4f4;
+      padding: 30px 45px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 70%;
+  }
+  .label {
+      color: #0087cf;
+      margin-bottom: 10px;
+  }
+  .form {
+      background-color: #fff;
+      padding: 5px;
+      border: 1px #0087cf solid;
+      border-radius: 3px;
+      display: flex;
+  }
+  .text-field {
+      color: #0087cf;
+      outline: none;
+      border: none;
+      font-size: 15px;
+      flex: 1;
+      margin-right: 5px;
+  }
+  .process-button {
+      background-color: #0087cf;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      padding: 10px 30px;
+      font: inherit;
+      font-size: 15px;
+      cursor: pointer;
+      outline: inherit;
+      width: 25%;
+  }
+</style>
+
+<div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="customSwitch1">
+  <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+</div>
+<%= form_with url: "/download_link", method: :get do |form| %>
+  <div class="content">
+    <div class="container">
+      <%= form.label :url, "Ingresa el link del video", class: 'label' %>
+      <div class="form">
+        <%= form.text_field :url, autocomplete: :off, class: 'text-field' %>
+        <%= form.submit "Procesar", class: 'process-button' %>
+      </div>
+    </div>
+  </div>
+<% end %>
