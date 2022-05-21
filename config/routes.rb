@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get '/youtube-dl', to: 'youtube_dl#form'
-  get '/download_link', to: 'youtube_dl#download_link'
+  get '/youtube-dl/process', to: 'youtube_dl#download'
   get '/song', to: 'youtube_dl#send_song'
 
+  mount ActionCable.server => '/cable'
 end
