@@ -12,12 +12,8 @@ class YoutubeDlController < ApplicationController
       # link = "#{filename}.mp3"
       # link = `youtube-dl --extract-audio --audio-format mp3 --output '#{filename}.mp3' --get-url #{url}` #--skip-download
       # system("youtube-dl --extract-audio --audio-format mp3 --output '#{formatted_title}.mp3' #{url}")
-      DownloadJob.perform_later(filename, url)
+      YoutubeDl::DownloadJob.perform_later(filename, url)
       # render json: { title: title, link: link }, status: :ok
-      p "RESPONSE---"
-      p "#{{ title: title, filename: filename }}"
-      p filename
-      p "RESPONSE---"
       render json: {title: title, filename: filename}, status: :ok
       # send_file File.join(Rails.root, "#{filename}.mp3"), type: "audio/mp3", filename: "#{filename}.mp3"
     else
