@@ -11,7 +11,7 @@ module YoutubeDl
         while (line = stdout.gets)
           message = line.strip.split
           if message.include? "[download]"
-            puts message
+            puts message.join(" ")
             ActionCable.server.broadcast "youtube_dl_channel", message[1]
           end
         end
