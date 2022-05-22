@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-  get '/youtube-dl', to: 'youtube_dl#form'
   get '/youtube-dl/process', to: 'youtube_dl#download'
-  get '/song', to: 'youtube_dl#send_song'
+  get '/youtube-dl/song', to: 'youtube_dl#send_song'
 
   mount ActionCable.server => '/cable'
 end

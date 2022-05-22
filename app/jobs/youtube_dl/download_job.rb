@@ -5,7 +5,7 @@ module YoutubeDl
     def perform(filename, url)
       puts "Starting download job"
 
-      command = "youtube-dl --newline --no-warnings --extract-audio --audio-format mp3 --output '#{filename}.mp3' #{url}" #| grep -e ETA -e \"Downloading video #\""
+      command = "youtube-dl --newline --no-warnings --extract-audio --audio-format mp3 --output '#{filename}.mp3' #{url}"
 
       Open3.popen3(command) do |stdin, stdout, stderr|
         while (line = stdout.gets)
